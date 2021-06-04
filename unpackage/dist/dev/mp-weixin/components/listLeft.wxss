@@ -1,0 +1,26 @@
+
+.list-left{
+	height: 150px;
+	margin-left: 10px;
+	color: #FFFFFF;
+	width: 120px;
+}
+.author{
+	height: 35px;
+	line-height: 35px;
+	font-size: 15px;
+}
+.title{
+	/* height: 35px; */
+	line-height: 35px;
+	font-size: 12px;
+	width: 100%;
+	/* 指定如果足够长的话应该换行 */
+	word-wrap: break-word;
+}
+.music{
+	height: 35px;
+	line-height: 35px;
+	font-size: 12px;
+}
+

@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "vedio-player": "/components/vedioPlayer"
+    "vedio-player": "/components/vedioPlayer",
+    "list-left": "/components/listLeft"
   }
 }

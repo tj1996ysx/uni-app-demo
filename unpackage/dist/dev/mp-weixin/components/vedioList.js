@@ -114,7 +114,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var vedioPlayer = function vedioPlayer() {__webpack_require__.e(/*! require.ensure | components/vedioPlayer */ "components/vedioPlayer").then((function () {return resolve(__webpack_require__(/*! ./vedioPlayer.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var vedioPlayer = function vedioPlayer() {__webpack_require__.e(/*! require.ensure | components/vedioPlayer */ "components/vedioPlayer").then((function () {return resolve(__webpack_require__(/*! ./vedioPlayer.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listLeft = function listLeft() {__webpack_require__.e(/*! require.ensure | components/listLeft */ "components/listLeft").then((function () {return resolve(__webpack_require__(/*! ./listLeft.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
 
 
 
@@ -132,7 +136,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   components: {
-    vedioPlayer: vedioPlayer },
+    vedioPlayer: vedioPlayer, listLeft: listLeft },
 
   name: "vedioList",
   props: ['list'],

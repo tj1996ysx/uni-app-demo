@@ -7,6 +7,9 @@
 						<vedio-player :video="item"></vedio-player>
 					</view>
 				</swiper-item>
+				<view class="list-left">
+					<list-left></list-left>
+				</view>
 			</swiper>
 		</view>
 	</view>
@@ -14,9 +17,10 @@
 
 <script>
 	import vedioPlayer from "./vedioPlayer.vue";
+	import listLeft from "./listLeft.vue";
 	export default {
 		components: {
-			vedioPlayer
+			vedioPlayer,listLeft
 		},
 		name: "vedioList",
 		props:['list'],
@@ -53,5 +57,12 @@
 		height: 100%;
 		width: 100%;
 		z-index: 10;
+	}
+	
+	.list-left {
+		z-index: 20;
+		position: absolute;
+		bottom: 50px;
+		left: 10px;
 	}
 </style>
