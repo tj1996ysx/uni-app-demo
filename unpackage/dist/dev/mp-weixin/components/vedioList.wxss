@@ -1,0 +1,19 @@
+
+.body {
+	width: 100%;
+	height: 100%;
+}
+.swiper-box {
+	width: 100%;
+	height: 100%;
+}
+.swiper {
+	height: 100%;
+	width: 100%;
+}
+.swiper-item {
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+

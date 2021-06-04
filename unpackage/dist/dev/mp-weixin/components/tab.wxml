@@ -1,0 +1,1 @@
+<view class="body"><view class="tab"><view class="tab-box">首页</view><view class="tab-box">关注</view><view class="tab-box"><view class="icon-box"><uni-icons vue-id="47b2621c-1" type="plusempty" size="20" bind:__l="__l"></uni-icons></view></view><view class="tab-box">消息</view><view class="tab-box">我</view></view></view>

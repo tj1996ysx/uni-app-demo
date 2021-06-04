@@ -1,0 +1,1 @@
+<view class="vedioPlayer"><video class="video" loop="{{true}}" controls="{{false}}" src="{{video.src}}" object-fit="fill" enable-play-gesture="true"></video></view>
