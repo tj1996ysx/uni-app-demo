@@ -16,10 +16,16 @@
 	width: 100%;
 	z-index: 10;
 }
-.list-left {
+.left-box {
 	z-index: 20;
 	position: absolute;
 	bottom: 50px;
 	left: 10px;
+}
+.right-box {
+	z-index: 20;
+	position: absolute;
+	bottom: 50px;
+	right: 10px;
 }
 

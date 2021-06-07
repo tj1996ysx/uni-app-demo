@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/first-nav":1,"components/tab":1,"components/vedioList":1,"components/uni-icons/uni-icons":1,"components/listLeft":1,"components/vedioPlayer":1};
+/******/ 		var cssChunks = {"components/first-nav":1,"components/tab":1,"components/vedioList":1,"components/uni-icons/uni-icons":1,"components/listLeft":1,"components/listRight":1,"components/vedioPlayer":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/first-nav":"components/first-nav","components/tab":"components/tab","components/vedioList":"components/vedioList","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/listLeft":"components/listLeft","components/vedioPlayer":"components/vedioPlayer"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/first-nav":"components/first-nav","components/tab":"components/tab","components/vedioList":"components/vedioList","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/listLeft":"components/listLeft","components/listRight":"components/listRight","components/vedioPlayer":"components/vedioPlayer"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

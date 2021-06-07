@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var vedioPlayer = function vedioPlayer() {__webpack_require__.e(/*! require.ensure | components/vedioPlayer */ "components/vedioPlayer").then((function () {return resolve(__webpack_require__(/*! ./vedioPlayer.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listLeft = function listLeft() {__webpack_require__.e(/*! require.ensure | components/listLeft */ "components/listLeft").then((function () {return resolve(__webpack_require__(/*! ./listLeft.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var vedioPlayer = function vedioPlayer() {__webpack_require__.e(/*! require.ensure | components/vedioPlayer */ "components/vedioPlayer").then((function () {return resolve(__webpack_require__(/*! ./vedioPlayer.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listLeft = function listLeft() {__webpack_require__.e(/*! require.ensure | components/listLeft */ "components/listLeft").then((function () {return resolve(__webpack_require__(/*! ./listLeft.vue */ 61));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listRight = function listRight() {__webpack_require__.e(/*! require.ensure | components/listRight */ "components/listRight").then((function () {return resolve(__webpack_require__(/*! ./listRight.vue */ 76));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -134,17 +134,56 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+var time = null;var _default =
 {
   components: {
-    vedioPlayer: vedioPlayer, listLeft: listLeft },
+    vedioPlayer: vedioPlayer,
+    listLeft: listLeft,
+    listRight: listRight },
 
   name: "vedioList",
   props: ['list'],
   data: function data() {
     return {
-      videos: [] };
+      videos: [],
+      pageStartY: 0,
+      pageEndY: 0,
+      page: 0 };
 
   },
+  methods: {
+    videoChange: function videoChange(res) {var _this = this;
+      clearTimeout(time);
+      this.page = res.detail.current;
+      time = setTimeout(function () {
+        if (_this.pageStartY < _this.pageEndY) {
+          _this.pageStartY = 0;
+          _this.pageEndY = 0;
+          //调用子组件中的方法
+          _this.$refs.player[_this.page].player();
+          _this.$refs.player[_this.page + 1].pause();
+        } else {
+          _this.pageStartY = 0;
+          _this.pageEndY = 0;
+          _this.$refs.player[_this.page].player();
+          _this.$refs.player[_this.page - 1].pause();
+        }
+      }, 1);
+    },
+    touchStart: function touchStart(res) {
+      this.pageStartY = res.changedTouches[0].pageY;
+    },
+    touchEnd: function touchEnd(res) {
+      this.pageEndY = res.changedTouches[0].pageY;
+    },
+    changeClick: function changeClick() {
+      this.$refs.right.videoClickCollect();
+    } },
+
   watch: {
     list: function list() {
       this.videos = this.list;

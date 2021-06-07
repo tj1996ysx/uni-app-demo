@@ -1,14 +1,17 @@
 <template>
 	<view class="body">
 		<view class="swiper-box">
-			<swiper class="swiper" :vertical="true">
-				<swiper-item v-for="item of videos" :key="item.id">
+			<swiper class="swiper" :vertical="true" @change='videoChange' @touchstart='touchStart' @touchend='touchEnd'>
+				<swiper-item v-for="(item,index) of videos" :key="item.id">
 					<view class="swiper-item">
-						<vedio-player :video="item"></vedio-player>
+						<vedio-player :video="item" :index="index" ref="player" @changeClick='changeClick'></vedio-player>
 					</view>
 				</swiper-item>
-				<view class="list-left">
+				<view class="left-box">
 					<list-left></list-left>
+				</view>
+				<view class="right-box">
+					<list-right ref="right"></list-right>
 				</view>
 			</swiper>
 		</view>
@@ -18,20 +21,56 @@
 <script>
 	import vedioPlayer from "./vedioPlayer.vue";
 	import listLeft from "./listLeft.vue";
+	import listRight from "./listRight.vue";
+	var time = null;
 	export default {
 		components: {
-			vedioPlayer,listLeft
+			vedioPlayer,
+			listLeft,
+			listRight
 		},
 		name: "vedioList",
-		props:['list'],
+		props: ['list'],
 		data() {
 			return {
-				videos:[]
+				videos: [],
+				pageStartY: 0,
+				pageEndY: 0,
+				page: 0,
 			};
 		},
-		watch:{
-			list(){
-				this.videos=this.list;
+		methods: {
+			videoChange(res) {
+				clearTimeout(time);
+				this.page = res.detail.current;
+				time = setTimeout(() => {
+					if (this.pageStartY < this.pageEndY) {
+						this.pageStartY = 0;
+						this.pageEndY = 0;
+						//调用子组件中的方法
+						this.$refs.player[this.page].player();
+						this.$refs.player[this.page + 1].pause();
+					} else {
+						this.pageStartY = 0;
+						this.pageEndY = 0;
+						this.$refs.player[this.page].player();
+						this.$refs.player[this.page - 1].pause();
+					}
+				}, 1)
+			},
+			touchStart(res) {
+				this.pageStartY = res.changedTouches[0].pageY;
+			},
+			touchEnd(res) {
+				this.pageEndY = res.changedTouches[0].pageY;
+			},
+			changeClick() {
+				this.$refs.right.videoClickCollect();
+			}
+		},
+		watch: {
+			list() {
+				this.videos = this.list;
 			}
 		}
 	}
@@ -58,11 +97,18 @@
 		width: 100%;
 		z-index: 10;
 	}
-	
-	.list-left {
+
+	.left-box {
 		z-index: 20;
 		position: absolute;
 		bottom: 50px;
 		left: 10px;
+	}
+
+	.right-box {
+		z-index: 20;
+		position: absolute;
+		bottom: 50px;
+		right: 10px;
 	}
 </style>
