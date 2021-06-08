@@ -8,19 +8,19 @@
 			<uni-icons type="heart-filled" :color="collectColor" size="30" @click="vedioCollect"></uni-icons>
 		</view>
 		<view class="number">
-			123
+			{{item.loveNumber}}
 		</view>
 		<view class="right-box">
 			<uni-icons class="collect" color="#FFFFFF" type="chat-filled" size="30"></uni-icons>
 		</view>
 		<view class="number">
-			123
+			{{item.commentNumber}}
 		</view>
 		<view class="right-box">
 			<uni-icons type="redo" color="#FFFFFF" size="30"></uni-icons>
 		</view>
 		<view class="number">
-			123
+			{{item.shareNumber}}
 		</view>
 		<view class="around">
 			<image class="img" src="../static/images/changpian.jpg"></image>
@@ -31,6 +31,9 @@
 <script>
 	export default {
 		name:"listRight",
+		props:[
+			'item',
+		],
 		data() {
 			return {
 				authorAddShow:true,

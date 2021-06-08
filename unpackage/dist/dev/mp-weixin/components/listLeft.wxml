@@ -1,1 +1,1 @@
-<view class="list-left"><view class="author">张三</view><view class="title">hellodsadfhasjfhasjfhasfjhasjfhasjfhasjfhas</view><view class="music-box"><view class="music">@月光下跳舞，婀娜多姿@tj</view></view></view>
+<view class="list-left"><view class="author">{{''+item.author+''}}</view><view class="title">{{''+item.title+''}}</view><view class="music-box"><view class="music">@月光下跳舞，婀娜多姿@tj</view></view></view>

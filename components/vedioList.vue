@@ -6,13 +6,13 @@
 					<view class="swiper-item">
 						<vedio-player :video="item" :index="index" ref="player" @changeClick='changeClick'></vedio-player>
 					</view>
+					<view class="left-box">
+						<list-left :item="item"></list-left>
+					</view>
+					<view class="right-box">
+						<list-right :item="item" ref="right"></list-right>
+					</view>
 				</swiper-item>
-				<view class="left-box">
-					<list-left></list-left>
-				</view>
-				<view class="right-box">
-					<list-right ref="right"></list-right>
-				</view>
 			</swiper>
 		</view>
 	</view>

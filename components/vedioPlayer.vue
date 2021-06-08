@@ -6,7 +6,7 @@
 		:src="video.src" 
 		:autoplay="autoplay"
 		@click="click"
-		controls></video>
+		></video>
 	</view>
 </template>
 

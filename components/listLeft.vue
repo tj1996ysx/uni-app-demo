@@ -1,10 +1,10 @@
 <template>
 	<view class="list-left">
 		<view class="author">
-			张三
+			{{item.author}}
 		</view>
 		<view class="title">
-			hellodsadfhasjfhasjfhasfjhasjfhasjfhasjfhas
+			{{item.title}}
 		</view>
 		<view class="music-box">
 			<view class="music">
@@ -17,6 +17,9 @@
 <script>
 	export default {
 		name:"listLeft",
+		props:[
+			'item',
+		],
 		data() {
 			return {
 				
