@@ -1,0 +1,24 @@
+
+.change-alphabet{
+	position: fixed;
+	top: 150px;
+	right: 0px;
+	color: #FFFFFF;
+	z-index: 20;
+}
+.list{
+	width: 20px;
+}
+.item{
+	text-align: center;
+	line-height: 10px;
+	font-size: 12px;
+	padding: 4px;
+}
+.hover{
+	text-align: center;
+	line-height: 10px;
+	font-size: 18px;
+	padding: 4px;
+}
+

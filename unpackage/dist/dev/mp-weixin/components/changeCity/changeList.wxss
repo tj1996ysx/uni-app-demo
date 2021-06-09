@@ -1,7 +1,9 @@
 
 .change-list{
 	width: 100%;
+	height: 100%;
 	background: #000000;
+	z-index: 19;
 }
 .box{
 	background: #222222;
@@ -59,5 +61,8 @@
 	padding-left: 10px;
 	color: #AAAAAA;
 	font-size: 15px;
+}
+.scrolly{
+	height: 100%;
 }
 

@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "change-header": "/components/changeCity/changeHeader",
-    "change-list": "/components/changeCity/changeList"
+    "change-list": "/components/changeCity/changeList",
+    "change-alphabet": "/components/changeCity/changeAlphabet"
   }
 }

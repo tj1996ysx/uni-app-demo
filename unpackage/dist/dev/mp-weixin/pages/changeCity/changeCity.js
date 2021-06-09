@@ -135,7 +135,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var changeHeader = function changeHeader() {__webpack_require__.e(/*! require.ensure | components/changeCity/changeHeader */ "components/changeCity/changeHeader").then((function () {return resolve(__webpack_require__(/*! ../../components/changeCity/changeHeader.vue */ 41));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var changeList = function changeList() {__webpack_require__.e(/*! require.ensure | components/changeCity/changeList */ "components/changeCity/changeList").then((function () {return resolve(__webpack_require__(/*! ../../components/changeCity/changeList.vue */ 48));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var changeHeader = function changeHeader() {__webpack_require__.e(/*! require.ensure | components/changeCity/changeHeader */ "components/changeCity/changeHeader").then((function () {return resolve(__webpack_require__(/*! ../../components/changeCity/changeHeader.vue */ 41));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var changeList = function changeList() {__webpack_require__.e(/*! require.ensure | components/changeCity/changeList */ "components/changeCity/changeList").then((function () {return resolve(__webpack_require__(/*! ../../components/changeCity/changeList.vue */ 48));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var changeAlphabet = function changeAlphabet() {__webpack_require__.e(/*! require.ensure | components/changeCity/changeAlphabet */ "components/changeCity/changeAlphabet").then((function () {return resolve(__webpack_require__(/*! ../../components/changeCity/changeAlphabet.vue */ 118));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -147,11 +149,12 @@ __webpack_require__.r(__webpack_exports__);
 
 {
   components: {
-    changeHeader: changeHeader, changeList: changeList },
+    changeHeader: changeHeader, changeList: changeList, changeAlphabet: changeAlphabet },
 
   data: function data() {
     return {
-      city: [] };
+      city: [],
+      letter: [] };
 
   },
   methods: {
@@ -162,6 +165,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.city = res.data.city;
         } });
 
+    },
+    change: function change(res) {
+      this.letter = res;
     } },
 
   created: function created() {

@@ -1,43 +1,53 @@
 <template>
 	<view class="change-list">
-		<view class="box">
-			<view class="title">
-				<uni-icons type="location-filled" color="" size="12"></uni-icons>
-				当前城市
-			</view>
-			<view class="current-city">
-				北京
-			</view>
-		</view>
-		<view class="box">
-			<view class="title">
-				热门城市
-			</view>
-			<view class="hot-list">
-				<view class="item" v-for="(item,index) of list" :key="index">
-					{{item}}
+		<scroll-view class="scrolly" scroll-y="true" :scroll-into-view="viewId">
+			<view class="city-box">
+				<view class="box">
+					<view class="title">
+						<uni-icons type="location-filled" color="" size="12"></uni-icons>
+						当前城市
+					</view>
+					<view class="current-city">
+						北京
+					</view>
+				</view>
+				<view class="box">
+					<view class="title">
+						热门城市
+					</view>
+					<view class="hot-list">
+						<view class="item" v-for="(item,index) of list" :key="index">
+							{{item}}
+						</view>
+					</view>
+				</view>
+				<view class="box-list" v-for="(items,index) in city" :key="index">
+					<view class="initial" :id="items.initial">
+						{{items.initial}}
+					</view>
+					<view class="city-name" v-for="item in items.list" :key="items.initial">
+						{{item.name}}
+					</view>
 				</view>
 			</view>
-		</view>
-		<view class="box-list" v-for="(items,index) in city" :key="index">
-			<view class="initial">
-				{{items.initial}}
-			</view>
-			<view class="city-name" v-for="item in items.list" :key="item.code">
-				{{item.name}}
-			</view>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
 	export default {
 		name:"changeList",
-		props:["city"],
+		props:["city","letter"],
 		data() {
 			return {
-				list:['深圳','北京','上海','重庆','南京','成都','武汉','杭州','西安','广州','香港']
+				list:['深圳','北京','上海','重庆','南京','成都','武汉','杭州','西安','广州','香港'],
+				viewId:'',
 			};
+		},
+		watch:{
+			letter(){
+				this.viewId = this.letter;
+			}
 		}
 	}
 </script>
@@ -45,7 +55,9 @@
 <style>
 	.change-list{
 		width: 100%;
+		height: 100%;
 		background: #000000;
+		z-index: 19;
 	}
 	
 	.box{
@@ -109,5 +121,9 @@
 		padding-left: 10px;
 		color: #AAAAAA;
 		font-size: 15px;
+	}
+	
+	.scrolly{
+		height: 100%;
 	}
 </style>

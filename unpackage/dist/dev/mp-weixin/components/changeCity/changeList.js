@@ -169,15 +169,24 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   name: "changeList",
-  props: ["city"],
+  props: ["city", "letter"],
   data: function data() {
     return {
-      list: ['深圳', '北京', '上海', '重庆', '南京', '成都', '武汉', '杭州', '西安', '广州', '香港'] };
+      list: ['深圳', '北京', '上海', '重庆', '南京', '成都', '武汉', '杭州', '西安', '广州', '香港'],
+      viewId: '' };
 
-  } };exports.default = _default;
+  },
+  watch: {
+    letter: function letter() {
+      this.viewId = this.letter;
+    } } };exports.default = _default;
 
 /***/ }),
 
