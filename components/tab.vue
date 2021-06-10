@@ -1,22 +1,24 @@
 <template>
 	<view class="body">
-		<view class="tab">
-			<view class="tab-box">
-				首页
-			</view>
-			<view class="tab-box">
-				关注
-			</view>
-			<view class="tab-box">
-				<view class="icon-box">
-					<uni-icons type="plusempty" size="20"></uni-icons>
+		<view class="tab-body">
+			<view class="tab">
+				<view class="tab-box">
+					首页
 				</view>
-			</view>
-			<view class="tab-box">
-				消息
-			</view>
-			<view class="tab-box">
-				我
+				<view class="tab-box">
+					关注
+				</view>
+				<view class="tab-box">
+					<view class="icon-box">
+						<uni-icons type="plusempty" size="20"></uni-icons>
+					</view>
+				</view>
+				<view class="tab-box">
+					消息
+				</view>
+				<view class="tab-box">
+					我
+				</view>
 			</view>
 		</view>
 	</view>
@@ -35,6 +37,9 @@
 
 <style>
 	.body{
+		
+	}
+	.tab-body{
 		height: 50px;
 		width: 100%;
 		position: fixed;

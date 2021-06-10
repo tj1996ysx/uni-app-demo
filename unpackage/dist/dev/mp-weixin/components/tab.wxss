@@ -1,5 +1,7 @@
 
 .body{
+}
+.tab-body{
 	height: 50px;
 	width: 100%;
 	position: fixed;

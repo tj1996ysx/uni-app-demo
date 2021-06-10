@@ -1,7 +1,7 @@
 <template>
 	<view class="city">
 		<firstNav></firstNav>
-		<city-content></city-content>
+		<city-content :c_city=c_city""></city-content>
 		<tab></tab>
 	</view>
 </template>
@@ -18,11 +18,16 @@
 		},
 		data() {
 			return {
-				
-			}
+				c_city:'北京'
+			};
 		},
-		methods: {
-			
+		onShow() {
+			uni.getStorage({
+				key:'chooseCity',
+				success(res) {
+					this.c_city = res.data;
+				}
+			})
 		}
 	}
 </script>
@@ -31,6 +36,6 @@
 	.city{
 		width: 100%;
 		height: 100%;
-		background-color: #333333;
+		background-color: #000000;
 	}
 </style>

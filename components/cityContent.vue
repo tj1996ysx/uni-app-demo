@@ -1,55 +1,58 @@
 <template>
 	<view class="cityContent">
-		<view class="conlation"> 
-			<view class="conlation-content conlation-left">
-				<view><uni-icons type="location-filled" color="#FFFFFF" size="13"></uni-icons></view>
-				<view>自动定位: 北京</view>
-			</view>
-			<view class="conlation-content conlation-right">
-				<view>切换</view>
-				<view><uni-icons type="arrowright" color="#FFFFFF" size="13"></uni-icons></view>
-			</view>
-		</view>
-		<view class="video-list">
-			<view class="item">
-				<view class="video">
-					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
+		<view class="conlation-body">
+			<view class="conlation">
+				<view class="conlation-content conlation-left">
+					<view><uni-icons type="location-filled" color="#FFFFFF" size="13"></uni-icons></view>
+					<view>自动定位: {{c_city}}</view>
 				</view>
-				<view class="img">
-					<image class="image-box" src="../static/images/touxiang.jpg"></image>
-				</view>
-			</view>
-			<view class="item">
-				<view class="video">
-					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
-				</view>
-				<view class="img">
-					<image class="image-box" src="../static/images/touxiang.jpg"></image>
-				</view>
-			</view>
-			<view class="item">
-				<view class="video">
-					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
-				</view>
-				<view class="img">
-					<image class="image-box" src="../static/images/touxiang.jpg"></image>
-				</view>
-			</view>
-			<view class="item">
-				<view class="video">
-					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
-				</view>
-				<view class="img">
-					<image class="image-box" src="../static/images/touxiang.jpg"></image>
-				</view>
+				<navigator class="conlation-content conlation-right" open-type="navigate" url="/pages/changeCity/changeCity">
+					<view>切换</view>
+					<view><uni-icons type="arrowright" color="#FFFFFF" size="13"></uni-icons></view>
+				</navigator>
 			</view>
 		</view>
+		<scroll-view class="video-list" scroll-y="true">
+			<view class="item">
+				<view class="video">
+					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
+				</view>
+				<view class="img">
+					<image class="image-box" src="../static/images/touxiang.jpg"></image>
+				</view>
+			</view>
+			<view class="item">
+				<view class="video">
+					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
+				</view>
+				<view class="img">
+					<image class="image-box" src="../static/images/touxiang.jpg"></image>
+				</view>
+			</view>
+			<view class="item">
+				<view class="video">
+					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
+				</view>
+				<view class="img">
+					<image class="image-box" src="../static/images/touxiang.jpg"></image>
+				</view>
+			</view>
+			<view class="item">
+				<view class="video">
+					<video style="width: 100%;height: 100%;" src="http://www.admin-api.test/storage/statics/456.mp4"></video>
+				</view>
+				<view class="img">
+					<image class="image-box" src="../static/images/touxiang.jpg"></image>
+				</view>
+			</view>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
 	export default {
 		name:"cityContent",
+		props:['c_city'],
 		data() {
 			return {
 				
@@ -61,19 +64,25 @@
 <style>
 	.cityContent{
 		width: 100%;
-		background-color: #000000;
+		height: 500px;
+		z-index: 1;
+		position: fixed;
+	}
+	
+	.conlation-body{
 		z-index: 10;
+		width: 100%;
 	}
 	
 	.conlation{
 		width: 100%;
 		height: 40px;
 		margin-top: 70px;
-		overflow: hidden;
 		display: flex;
 		display: -webkit-flex;
 		align-items:center;
 		justify-content:space-between;
+		background-color: #333333;
 	}
 	
 	.conlation-content{
@@ -98,6 +107,7 @@
 	
 	.video-list{
 		width: 100%;
+		height: 100%;
 		background: #000000;
 		display: flex;
 		flex-wrap: wrap;
@@ -105,7 +115,7 @@
 	
 	.item{
 		width: 50%;
-		overflow: auto;
+		display: inline-block;
 		position: relative;
 	}
 	

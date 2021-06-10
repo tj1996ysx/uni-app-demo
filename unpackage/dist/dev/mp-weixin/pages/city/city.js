@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 55));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var firstNav = function firstNav() {__webpack_require__.e(/*! require.ensure | components/first-nav */ "components/first-nav").then((function () {return resolve(__webpack_require__(/*! ../../components/first-nav.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var cityContent = function cityContent() {__webpack_require__.e(/*! require.ensure | components/cityContent */ "components/cityContent").then((function () {return resolve(__webpack_require__(/*! ../../components/cityContent.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var firstNav = function firstNav() {__webpack_require__.e(/*! require.ensure | components/first-nav */ "components/first-nav").then((function () {return resolve(__webpack_require__(/*! ../../components/first-nav.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var cityContent = function cityContent() {__webpack_require__.e(/*! require.ensure | components/cityContent */ "components/cityContent").then((function () {return resolve(__webpack_require__(/*! ../../components/cityContent.vue */ 76));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -149,11 +149,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     cityContent: cityContent },
 
   data: function data() {
-    return {};
-
+    return {
+      c_city: '北京' };
 
   },
-  methods: {} };exports.default = _default;
+  onShow: function onShow() {
+    uni.getStorage({
+      key: 'chooseCity',
+      success: function success(res) {
+        this.c_city = res.data;
+      } });
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

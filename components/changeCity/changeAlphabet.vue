@@ -28,30 +28,32 @@
 			};
 		},
 		mounted() {
-			console.log(this.$refs)
+			//查询dom节点信息
+			// let query=uni.createSelectorQuery().in(this);
+			// query.select('.list').boundingClientRect(data => {
+			//   console.log(data);
+			// }).exec();
 		},
 		methods:{
 			click(res){
 				this.$emit('change',res);
 			},
-			touchStart(){
-				let top_dom = document.
+			touchStart(res){
 				this.touch = true;
+				// console.log(res);
 			},
 			touchMove(e){
-				//这样写死了到顶部的高度，虽然可以从上至下按住滑动跳转相应的位置，但从下至上不行,因为上下高度不一样
-				// console.log(e)
-				
-				// clearTimeout(timer);
-				// timer = setTimeout(()=>{
-				// 	if(this.touch){
-				// 		const touchY = e.changedTouches[0].pageY - 150;//150px为右侧字母列表与顶部之间的距离
-				// 		const index = Math.floor(touchY/18) //18px为右侧字母列表的每个字母块的高度
-				// 		if(index >= 0 && index <= this.city.length){
-				// 			this.$emit('change',this.city[index].initial);
-				// 		}
-				// 	}
-				// },30)
+				clearTimeout(timer);
+				timer = setTimeout(()=>{
+					if(this.touch === true){
+						const touchY = e.changedTouches[0].pageY - 150;//150px为右侧字母列表与顶部之间的距离
+						const index = Math.floor(touchY/18) //18px为右侧字母列表的每个字母块的高度
+						// console.log(index);
+						if(index >= 0 && index <= this.city.length){
+							this.$emit('change',this.city[index].initial);
+						}
+					}
+				},10)
 			},
 			touchEnd(){
 				this.touch =false;

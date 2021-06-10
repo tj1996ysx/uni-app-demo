@@ -24,8 +24,18 @@
       "list": []
     },
     "miniprogram": {
-      "current": -1,
-      "list": []
+      "list": [
+        {
+          "name": "同城",
+          "id": 0,
+          "pathName": "pages/city/city"
+        },
+        {
+          "name": "修改城市",
+          "id": 1,
+          "pathName": "pages/changeCity/changeCity"
+        }
+      ]
     }
   }
 }

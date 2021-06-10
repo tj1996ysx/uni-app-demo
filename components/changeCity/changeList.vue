@@ -8,7 +8,7 @@
 						当前城市
 					</view>
 					<view class="current-city">
-						北京
+						{{c_city}}
 					</view>
 				</view>
 				<view class="box">
@@ -16,7 +16,7 @@
 						热门城市
 					</view>
 					<view class="hot-list">
-						<view class="item" v-for="(item,index) of list" :key="index">
+						<view class="item" v-for="(item,index) of list" :key="index" @click="()=>cityClick(item)">
 							{{item}}
 						</view>
 					</view>
@@ -25,7 +25,7 @@
 					<view class="initial" :id="items.initial">
 						{{items.initial}}
 					</view>
-					<view class="city-name" v-for="item in items.list" :key="items.initial">
+					<view class="city-name" v-for="item in items.list" :key="items.initial" @click="()=>cityClick(item.name)">
 						{{item.name}}
 					</view>
 				</view>
@@ -42,7 +42,26 @@
 			return {
 				list:['深圳','北京','上海','重庆','南京','成都','武汉','杭州','西安','广州','香港'],
 				viewId:'',
+				c_city:'北京'
 			};
+		},
+		methods:{
+			cityClick(res){
+				let that = this;
+				uni.setStorage({
+					key:'chooseCity',
+					data:res,
+				});
+				uni.getStorage({
+					key:'chooseCity',
+					success(d) {
+						that.c_city = d.data;
+					}
+				})
+				uni.redirectTo({
+					url:"/pages/city/city"
+				})
+			}
 		},
 		watch:{
 			letter(){

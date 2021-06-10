@@ -1,1 +1,1 @@
-<view><view class="change-header"><view class="left"><uni-icons vue-id="64996500-1" type="closeempty" color="#FFFFFF" size="25" bind:__l="__l"></uni-icons></view><view class="title">切换城市</view></view><view class="fill"></view></view>
+<view><view class="change-header"><navigator open-type="navigateBack"><view class="left"><uni-icons vue-id="64996500-1" type="closeempty" color="#FFFFFF" size="25" bind:__l="__l"></uni-icons></view><view class="title">切换城市</view></navigator></view><view class="fill"></view></view>

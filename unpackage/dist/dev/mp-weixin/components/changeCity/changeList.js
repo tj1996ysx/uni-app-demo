@@ -80,7 +80,7 @@ var components
 try {
   components = {
     uniIcons: function() {
-      return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 83))
+      return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 90))
     }
   }
 } catch (e) {
@@ -104,6 +104,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  if (!_vm._isMounted) {
+    _vm.e0 = function(item) {
+      var args = [],
+        len = arguments.length - 1
+      while (len-- > 0) args[len] = arguments[len + 1]
+
+      var _temp = args[args.length - 1].currentTarget.dataset,
+        _temp2 = _temp.eventParams || _temp["event-params"],
+        item = _temp2.item
+
+      var _temp, _temp2
+
+      return _vm.cityClick(item)
+    }
+
+    _vm.e1 = function(item) {
+      var args = [],
+        len = arguments.length - 1
+      while (len-- > 0) args[len] = arguments[len + 1]
+
+      var _temp3 = args[args.length - 1].currentTarget.dataset,
+        _temp4 = _temp3.eventParams || _temp3["event-params"],
+        item = _temp4.item
+
+      var _temp3, _temp4
+
+      return _vm.cityClick(item.name)
+    }
+  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -137,7 +166,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -180,13 +209,33 @@ var _default =
   data: function data() {
     return {
       list: ['深圳', '北京', '上海', '重庆', '南京', '成都', '武汉', '杭州', '西安', '广州', '香港'],
-      viewId: '' };
+      viewId: '',
+      c_city: '北京' };
 
   },
+  methods: {
+    cityClick: function cityClick(res) {
+      var that = this;
+      uni.setStorage({
+        key: 'chooseCity',
+        data: res });
+
+      uni.getStorage({
+        key: 'chooseCity',
+        success: function success(d) {
+          that.c_city = d.data;
+        } });
+
+      uni.redirectTo({
+        url: "/pages/city/city" });
+
+    } },
+
   watch: {
     letter: function letter() {
       this.viewId = this.letter;
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

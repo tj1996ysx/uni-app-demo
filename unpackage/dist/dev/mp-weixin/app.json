@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/changeCity/changeCity",
-    "pages/city/city",
     "pages/index/index",
-    "pages/follow/follow"
+    "pages/city/city",
+    "pages/follow/follow",
+    "pages/changeCity/changeCity"
   ],
   "subPackages": [],
   "window": {
@@ -23,6 +23,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

@@ -1,12 +1,14 @@
 <template>
 	<view>
 		<view class="change-header">
-			<view class="left">
-				<uni-icons type="closeempty" color="#FFFFFF" size="25"></uni-icons>
-			</view>
-			<view class="title">
-				切换城市
-			</view>
+			<navigator open-type="navigateBack">
+				<view class="left">
+					<uni-icons type="closeempty" color="#FFFFFF" size="25"></uni-icons>
+				</view>
+				<view class="title">
+					切换城市
+				</view>
+			</navigator>
 		</view>
 		<view class="fill"></view>
 	</view>
