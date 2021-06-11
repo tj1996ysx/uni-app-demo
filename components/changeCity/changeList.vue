@@ -35,6 +35,7 @@
 </template>
 
 <script>
+	import { mapState } from 'vuex';
 	export default {
 		name:"changeList",
 		props:["city","letter"],
@@ -42,26 +43,45 @@
 			return {
 				list:['深圳','北京','上海','重庆','南京','成都','武汉','杭州','西安','广州','香港'],
 				viewId:'',
-				c_city:'北京'
+				// c_city:'北京'
 			};
+		},
+		// computed:{
+		// 	c_city(){
+		// 		return this.$store.state.c_city;
+		// 	}
+		// }
+		// computed:mapState({
+		// 	// c_city:state => state.c_city
+		// 	c_city:'c_city'
+		// }),
+		//在未使用vuex的项目中新在computed中添加vuex
+		computed:{
+			...mapState({
+				c_city:'c_city'
+			})
 		},
 		methods:{
 			cityClick(res){
 				let that = this;
-				uni.setStorage({
-					key:'chooseCity',
-					data:res,
-				});
-				uni.getStorage({
-					key:'chooseCity',
-					success(d) {
-						that.c_city = d.data;
-					}
-				})
+				// uni.setStorage({
+				// 	key:'chooseCity',
+				// 	data:res,
+				// });
+				// uni.getStorage({
+				// 	key:'chooseCity',
+				// 	success(d) {
+				// 		that.c_city = d.data;
+				// 	}
+				// })
+				this.$store.commit('editChooseCity',res);return;
 				uni.redirectTo({
 					url:"/pages/city/city"
 				})
 			}
+		},
+		created() {
+			// console.log(this.$store.state.c_city);
 		},
 		watch:{
 			letter(){
